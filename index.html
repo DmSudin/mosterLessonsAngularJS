@@ -7,19 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <div ng-app>
-        <input type="text" ng-model="hello">
-        <input type="text" ng-model="hello">
-        {{hello}}
-        
-
-
-
-    </div>
-
-
 <script src="../.././../Рабочий стол/libs/lodash.js"></script>
 <script src="../../../Рабочий стол/libs/angular.js"></script>
-<script src="../../../Рабочий стол/libs/angular.js"></script>
+<script src="./js/main.js"></script>
+
+<div ng-controller="myCtrl">
+    {{hello}}
+    <input type="text" ng-model="myBook">
+    {{myBook}}
+</div>
+
+
 </body>
 </html>
