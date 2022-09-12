@@ -12,12 +12,13 @@
 <script src="./js/main.js"></script>
 
 <div ng-controller="firstCtrl">
-    <input type="text" ng-model="myFactory.hello">
+    {{hello}}
+    {{getBookmark()}}
+    <button ng-click="setHello('Foo')">Foo</button>
+    <button ng-click="setHello('Bar')">Bar</button>
+    {{myFactory.hello()}}
 </div>
 
-<div ng-controller="secondCtrl">
-    <input type="text" ng-model="myFactory.hello">
-</div>
 
 
 </body>
