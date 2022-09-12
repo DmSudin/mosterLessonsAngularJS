@@ -11,12 +11,14 @@
 <script src="../../../Рабочий стол/libs/angular.js"></script>
 <script src="./js/main.js"></script>
 
-<div ng-controller="firstCtrl">
-    {{hello}}
-    {{getBookmark()}}
-    <button ng-click="setHello('Foo')">Foo</button>
-    <button ng-click="setHello('Bar')">Bar</button>
-    {{myFactory.hello()}}
+<div ng-controller="myBooksCtrl">
+    <div ng-controller="angularBookCtrl">
+        <button ng-click="showBook()">Show Angular Book</button>
+    </div>
+
+    <div ng-controller="emberBookCtrl">
+        <button ng-click="showBook()">Show Ember Book</button>
+    </div>
 </div>
 
 
