@@ -11,7 +11,13 @@
 <script src="../../../Рабочий стол/libs/angular.js"></script>
 <script src="./js/main.js"></script>
 
-<div foo>foo</div>
+<div ng-controller="mainCtrl">
+    {{money1 | moneyFilter}}
+    <br>
+    {{money2 | moneyFilter}}
+    <br>
+    {{money3 | moneyFilter}}
+</div>
 
 
 
