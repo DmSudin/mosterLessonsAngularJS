@@ -1,26 +1,20 @@
 let app = angular.module('app', []);
 
-app.directive('fooBar', function() {
-    let bookmarks = [
-        {
-            id: 1,
-            name: 'Angular JS'
-        },
-        {
-            id: 2,
-            name: 'Ember JS'
-        },
-        {
-            id: 3,
-            name: 'React JS'
-        },
-    ];
+app.controller('mainCtrl', function($scope) {
+    $scope.name = 'Bob';
+});
 
+app.directive('fooBar', function() {
     return {
-        template: `<div ng-repeat="bookmark in myBookmarks">{{bookmark.name}}</div>`,        
-        link: function(scope, element, attrs) {
-            scope.name = 'user';
-            scope.myBookmarks = bookmarks;
+        restrict: 'E',
+        transclude: true,
+        template: 'this is directive',
+        link: function(scope, element, attrs, ctrl, transclude) {
+            transclude(scope, function(clone, scope) {
+                console.log('!', clone, scope);
+                element.append(clone);
+            });
+            
         }
     };
 });
