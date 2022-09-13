@@ -1,16 +1,17 @@
 let app = angular.module('app', []);
 
-app.controller('mainCtrl', function($scope) {
-    this.myLesson = 'MainLesson';
-    this.addLesson = function() {
-        console.log('add lesson');
+app.directive('foo', function() {
+    return {
+        link: function(scope, element, attrs) {
+            element.on('click', function() {
+                if(element.text() === 'foo') {
+                    element.text('bar');
+                } else element.text('foo');
+            });
+
+        }
     };
-});
+    
 
-app.controller('firstCtrl', function() {
-    this.myLesson = 'FirstLesson';
-});
 
-app.controller('secondCtrl', function() {
-    this.myLesson = 'SecondLesson';
 });
