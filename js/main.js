@@ -1,18 +1,16 @@
 let app = angular.module('app', []);
 
-app.controller('myBooksCtrl', function($scope) {
-    $scope.showBook = function() {
-        console.log('this is some book');
+app.controller('mainCtrl', function($scope) {
+    this.myLesson = 'MainLesson';
+    this.addLesson = function() {
+        console.log('add lesson');
     };
 });
 
-app.controller('angularBookCtrl', function($scope) {
-    $scope.showBook = function() {
-        console.log('this is angular js book');
-    };
+app.controller('firstCtrl', function() {
+    this.myLesson = 'FirstLesson';
 });
 
-
-app.controller('emberBookCtrl', function($scope) {
-
+app.controller('secondCtrl', function() {
+    this.myLesson = 'SecondLesson';
 });
