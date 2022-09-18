@@ -6,26 +6,28 @@ app.run(function($templateCache) {
 });
 
 app.controller('mainCtrl', function($scope) {
-});
-
-app.directive('fooBar', function($templateCache) {
-    let bookmarks = [
+    console.error('ctrl scope: ', $scope);
+    $scope.posts = [
         {
-            id: 1,
-            name: 'EmberJS'
+            name: 'This is post about cats'
         },
         {
-            id: 2,
-            name: 'AngularJS'
-        }
+            name: 'This is post about dogs'
+        },
     ];
+
+    $scope.getPosts = function() {
+        return $scope.posts;        
+    };
+});
+
+app.directive('post', function() {
+
     return {
-        restrict: 'E',
-        replace: false,
-        templateUrl: 'bookmarks.html',
+        scope: false,
+        template: "<div ng-repeat='post in getPosts()'>{{post.name}}</div>",
         link: function(scope, element, attrs) {
-            scope.bookmarks = bookmarks;
-            console.error($templateCache.info());
+            console.error('scope', scope);
         }
     };
 });
