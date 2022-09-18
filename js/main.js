@@ -1,13 +1,13 @@
 let app = angular.module('app', []);
 
-app.run(function($templateCache) {
-    $templateCache.put('bookmarks.html', "<div ng-repeat='bookmark in bookmarks'>{{bookmark.name}}</div>")
 
-});
-
-app.controller('booksCtrl', function($scope) {
+app.controller('firstCtrl', function($scope) {
     $scope.name = 'Harry';
-    console.error('scope from ctrl: ', $scope);
+    $scope.color = '#333333';
+
+    $scope.reverse = function() {
+        $scope.name = $scope.name.split('').reverse().join('');
+    };
 });
 
 
@@ -15,13 +15,17 @@ app.controller('booksCtrl', function($scope) {
 
 
 
-app.directive('book', function() {
+app.directive('fooBar', function() {
+
     return {
-        scope: true,
-        template: "<div>My name is {{name}} <input type='text' ng-model=name></div>",
+        scope: {
+            name: '@',
+            color: '=',
+            reverse: '&'
+        },
+        template: "<div>my directive name is {{name}} <input type='text' ng-model='name'></div> <div> color in directive: {{color}}</div><input type='text' ng-model='color'> <button ng-click='reverse()'>Reverse name (directive)</button>",
         link: function(scope, element, attrs) {
-            console.error('scope from directive', scope);
-            console.error(scope.name);
+            console.error('fooBar');
         }
     };
 });
