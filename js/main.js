@@ -5,29 +5,23 @@ app.run(function($templateCache) {
 
 });
 
-app.controller('mainCtrl', function($scope) {
-    console.error('ctrl scope: ', $scope);
-    $scope.posts = [
-        {
-            name: 'This is post about cats'
-        },
-        {
-            name: 'This is post about dogs'
-        },
-    ];
-
-    $scope.getPosts = function() {
-        return $scope.posts;        
-    };
+app.controller('booksCtrl', function($scope) {
+    $scope.name = 'Harry';
+    console.error('scope from ctrl: ', $scope);
 });
 
-app.directive('post', function() {
 
+
+
+
+
+app.directive('book', function() {
     return {
-        scope: false,
-        template: "<div ng-repeat='post in getPosts()'>{{post.name}}</div>",
+        scope: true,
+        template: "<div>My name is {{name}} <input type='text' ng-model=name></div>",
         link: function(scope, element, attrs) {
-            console.error('scope', scope);
+            console.error('scope from directive', scope);
+            console.error(scope.name);
         }
     };
 });
