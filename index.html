@@ -5,23 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../.././../Рабочий стол/libs/lodash.js"></script>
+    <!-- <script src="../.././../Рабочий стол/libs/lodash.js"></script> -->
+
     <script src="../../../Рабочий стол/libs/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.js"></script>
     <script src="./js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css">
+
 </head>
 <body>
+    <a href="#/">Home</a>
+    <a href="#/posts">Posts</a>
 
-
-    <ui-source>
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="yourName" placeholder="Enter name">
-            <hr>
-            <h1>Hello {{yourName}}</h1>
-        </div>
-    </ui-source>
+    <ng-view></ng-view>
 
 
 

@@ -1,20 +1,19 @@
+let app = angular.module('app', ['ngRoute']);
 
-let app = angular.module('app', []);
+app.config(function($routeProvider){
+    $routeProvider
+        .when('/', {
+            templateUrl: 'home.html',
+            controller: 'homeCtrl'
+        })
+        .when('/posts', {
+            template: '<h1>Posts</h1>'
+        })
+});
 
-app.directive('uiSource', function(){
-    return {
-        compile: function(element) {
-            let escape = function(content) {
-                return content.replace(/\</g, '&lt;')
-                                .replace(/\>/g, '&gt;')
-
-            };
-
-            let pre = angular.element("<pre class='prettyprint'></pre>");
-            let pretty = prettyPrintOne(escape(element.html()));
-            console.error(pretty);
-            pre.append(pretty);
-            element.replaceWith(pre);
-        }
+app.controller('homeCtrl', function($scope) {
+    console.error('homeCtrl');
+    $scope.model = {
+        message: 'this is homepage'
     };
 });
