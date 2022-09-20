@@ -19,6 +19,18 @@ app.config(function($routeProvider){
         })
 });
 
+app.run(function($rootScope) {
+    $rootScope.$on('$routeChangeStart', function(event, current, previous, reject) {
+        console.error('changeStart', arguments);
+    });
+
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous, reject) {
+        console.error('changeSuccess', arguments);
+        $rootScope.currentPath = current.$$route.originalPath;
+    });
+
+});
+
 app.controller('homeCtrl', function($scope) {
     console.error('homeCtrl');
     $scope.model = {
@@ -35,6 +47,8 @@ app.controller('postCtrl', function($scope, $routeParams, postsFactory) {
 app.controller('postsCtrl', function($scope, postsFactory) {
     $scope.posts = postsFactory;
 });
+
+app.controller('pathCtrl', function() {});
 
 app.factory('postsFactory', function() {
     return [
